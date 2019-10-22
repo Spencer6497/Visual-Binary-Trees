@@ -33,9 +33,19 @@ public class BSTAnimation extends Application {
         tfKey.setAlignment(Pos.BASELINE_RIGHT);
         Button btInsert = new Button("Insert");
         Button btDelete = new Button("Delete");
+
+        // Begin project code
+        // Add search, inorder, preorder, postorder, breadth-first, and height buttons
+        Button btSearch = new Button("Search");
+        Button btInorder = new Button("Inorder");
+        Button btPreorder = new Button("Preorder");
+        Button btPostorder = new Button("Postorder");
+        Button btBreadth = new Button("Breadth-first");
+        Button btHeight = new Button("Height");
+
         HBox hBox = new HBox(5);
         hBox.getChildren().addAll(new Label("Enter a key: "),
-                tfKey, btInsert, btDelete);
+                tfKey, btInsert, btDelete, btSearch, btInorder, btPreorder, btPostorder, btBreadth, btHeight);
         hBox.setAlignment(Pos.CENTER);
         pane.setBottom(hBox);
 
@@ -66,7 +76,7 @@ public class BSTAnimation extends Application {
         });
 
         // Create a scene and place the pane in the stage
-        Scene scene = new Scene(pane, 450, 250);
+        Scene scene = new Scene(pane, 750, 250);
         primaryStage.setTitle("BSTAnimation"); // Set the stage title
         primaryStage.setScene(scene); // Place the scene in the stage
         primaryStage.show(); // Display the stage
