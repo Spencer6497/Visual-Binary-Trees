@@ -1,3 +1,14 @@
+/*
+    Spencer Peace
+    CSC 364-001
+    Dr. Jeff Ward
+
+    This program provides BSTAnimation.java with the visual elements to display the BST, such as the window and buttons
+    as well as any text displayed.
+
+ */
+
+
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;

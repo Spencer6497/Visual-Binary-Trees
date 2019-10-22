@@ -1,3 +1,14 @@
+/*
+    Spencer Peace
+    CSC 364-001
+    Dr. Jeff Ward
+
+    This program uses BST.java (the definition of the binary search tree) to display a visual representation of the BST
+    along with associated functions like insert, delete, search, and tree traversal.
+
+ */
+
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.stage.Stage;
