@@ -49,6 +49,7 @@ public class BSTAnimation extends Application {
         hBox.setAlignment(Pos.CENTER);
         pane.setBottom(hBox);
 
+        // Set behavior for insert button
         btInsert.setOnAction(e -> {
             int key = Integer.parseInt(tfKey.getText());
             if (tree.search(key)) { // key is in the tree already
@@ -62,6 +63,7 @@ public class BSTAnimation extends Application {
             }
         });
 
+        // Set behavior for delete button
         btDelete.setOnAction(e -> {
             int key = Integer.parseInt(tfKey.getText());
             if (!tree.search(key)) { // key is not in the tree
@@ -75,8 +77,20 @@ public class BSTAnimation extends Application {
             }
         });
 
+        // Set behavior for search button
+        btSearch.setOnAction(e -> {
+            int key = Integer.parseInt(tfKey.getText());
+            if (!tree.search(key)) { // if key is not in the tree
+                view.displayTree();
+                view.setStatus(key + " is not in the tree");
+            } else {
+                view.displayTree();
+                view.setStatus("Found " + key + " in the tree");
+            }
+        });
+
         // Create a scene and place the pane in the stage
-        Scene scene = new Scene(pane, 750, 250);
+        Scene scene = new Scene(pane, 750, 250); // Widened scene from 450 width to 750 width to fit buttons
         primaryStage.setTitle("BSTAnimation"); // Set the stage title
         primaryStage.setScene(scene); // Place the scene in the stage
         primaryStage.show(); // Display the stage

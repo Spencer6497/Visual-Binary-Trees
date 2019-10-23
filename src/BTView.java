@@ -3,8 +3,8 @@
     CSC 364-001
     Dr. Jeff Ward
 
-    This program provides BSTAnimation.java with the visual elements to display the BST, such as the window and buttons
-    as well as any text displayed.
+    This program provides BSTAnimation.java with the visual elements to display the BST, such as the circular nodes and
+    the links between them, as well as the highlighting associated with the search function.
 
  */
 
@@ -19,6 +19,7 @@ public class BTView extends Pane {
     private BST<Integer> tree = new BST<>();
     private double radius = 15; // Tree node radius
     private double vGap = 50; // Gap between successive levels in the tree
+    //public java.util.ArrayList<TreeNode<E>>
 
     BTView(BST<Integer> tree) {
         this.tree = tree;
