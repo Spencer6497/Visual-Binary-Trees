@@ -112,6 +112,15 @@ public class BSTAnimation extends Application {
             view.setStatus("Inorder Traversal: " + tree.inorderList().toString());
         });
 
+        // Set behavior for preorder button
+        btPreorder.setOnAction(e -> {
+            view.displayTree();
+            // Test
+            tree.preorder();
+            view.setStatus("Inorder Traversal: " + tree.preorderList().toString());
+        });
+
+
         // Create a scene and place the pane in the stage
         Scene scene = new Scene(pane, 750, 250); // Widened scene from 450 width to 750 width to fit buttons
         primaryStage.setTitle("BSTAnimation"); // Set the stage title
