@@ -162,19 +162,6 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return null;
     }
 
-    @Override /** Postorder traversal from the root */
-    public void postorder() {
-        postorder(root);
-    }
-
-    /** Postorder traversal from a subtree */
-    protected void postorder(TreeNode<E> root) {
-        if (root == null) return;
-        postorder(root.left);
-        postorder(root.right);
-        System.out.print(root.element + " ");
-    }
-
     /** This inner class is static, because it does not access
      any instance members defined in its outer class */
     public static class TreeNode<E> {
