@@ -8,6 +8,8 @@
     the tree.
 */
 
+import java.util.*;
+
 public class BST<E extends Comparable<E>> implements Tree<E> {
     protected TreeNode<E> root;
     protected int size = 0;
@@ -106,18 +108,64 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return new TreeNode<>(e);
     }
 
-    @Override /** Inorder traversal from the root */
+    // Define variable to hold current ordered list
+    java.util.ArrayList<E> orderedList = new ArrayList<E>();
+
+    // Define helper method to add elements to ordered list in inorder fashion
+    private void inorderList(TreeNode<E> root, List<E> list) {
+        if (root == null) return;
+        inorderList(root.left, list);
+        list.add(root.element);
+        inorderList(root.right, list);
+    }
+
+    // Define method to return list of inorder elements by calling helper method
+    public java.util.List<E> inorderList() {
+        orderedList.clear(); // Clear previous list as we are reordering it
+        inorderList(root, orderedList); // call helper method
+        return orderedList;
+    }
+
+    // Define helper method to add elements to ordered list in inorder fashion
+    private void preorderList(TreeNode<E> root, List<E> list) {
+        if (root == null) return;
+        list.add(root.element);
+        preorderList(root.left, list);
+        preorderList(root.right, list);
+    }
+
+    // Define method to return list of preorder elements by calling helper method
+    public java.util.List<E> preorderList() {
+        orderedList.clear();
+        preorderList(root, orderedList);
+        return orderedList;
+    }
+
+    // Define method to return list of postorder elements
+    public java.util.List<E> postorderList() {
+        return null;
+    }
+
+    // Define method to return list of breadth-first elements
+    public java.util.List<E> breadthFirstOrderList() {
+        return null;
+    }
+
+
+    //@Override /** Inorder traversal from the root */
+    /*
     public void inorder() {
         inorder(root);
     }
 
-    /** Inorder traversal from a subtree */
+    // Inorder traversal from a subtree
     protected void inorder(TreeNode<E> root) {
         if (root == null) return;
         inorder(root.left);
         System.out.print(root.element + " ");
         inorder(root.right);
     }
+    */
 
     @Override /** Postorder traversal from the root */
     public void postorder() {

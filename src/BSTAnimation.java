@@ -85,7 +85,7 @@ public class BSTAnimation extends Application {
             }
         });
 
-        // Set behavior for search button
+        // Set behavior for search button [Needs work]
         btSearch.setOnAction(e -> {
             int key = Integer.parseInt(tfKey.getText());
             view.path = tree.path(key); // set path variable in BTView equal to the path returned by BST path method
@@ -102,6 +102,14 @@ public class BSTAnimation extends Application {
         btHeight.setOnAction(e -> {
             view.displayTree();
             view.setStatus("Tree height is " + tree.height());
+        });
+
+        // Set behavior for inorder button
+        btInorder.setOnAction(e -> {
+            view.displayTree();
+            // Test
+            tree.inorder();
+            view.setStatus("Inorder Traversal: " + tree.inorderList().toString());
         });
 
         // Create a scene and place the pane in the stage
