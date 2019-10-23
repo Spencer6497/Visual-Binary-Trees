@@ -117,7 +117,15 @@ public class BSTAnimation extends Application {
             view.displayTree();
             // Test
             tree.preorder();
-            view.setStatus("Inorder Traversal: " + tree.preorderList().toString());
+            view.setStatus("Preorder Traversal: " + tree.preorderList().toString());
+        });
+
+        // Set behavior for postorder button
+        btPostorder.setOnAction(e -> {
+            view.displayTree();
+            // Test
+            tree.postorder();
+            view.setStatus("Postorder Traversal: " + tree.postorderList().toString());
         });
 
 

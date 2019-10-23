@@ -126,7 +126,7 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return orderedList;
     }
 
-    // Define helper method to add elements to ordered list in inorder fashion
+    // Define helper method to add elements to ordered list in preorder fashion
     private void preorderList(TreeNode<E> root, List<E> list) {
         if (root == null) return;
         list.add(root.element);
@@ -141,31 +141,26 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return orderedList;
     }
 
-    // Define method to return list of postorder elements
+    // Define helper method to add elements to ordered list in postorder fashion
+    private void postorderList(TreeNode<E> root, List<E> list) {
+        if (root == null) return;
+        postorderList(root.left, list);
+        postorderList(root.right, list);
+        list.add(root.element);
+    }
+
+
+    // Define method to return list of postorder elements by calling helper method
     public java.util.List<E> postorderList() {
-        return null;
+        orderedList.clear();
+        postorderList(root, orderedList);
+        return orderedList;
     }
 
     // Define method to return list of breadth-first elements
     public java.util.List<E> breadthFirstOrderList() {
         return null;
     }
-
-
-    //@Override /** Inorder traversal from the root */
-    /*
-    public void inorder() {
-        inorder(root);
-    }
-
-    // Inorder traversal from a subtree
-    protected void inorder(TreeNode<E> root) {
-        if (root == null) return;
-        inorder(root.left);
-        System.out.print(root.element + " ");
-        inorder(root.right);
-    }
-    */
 
     @Override /** Postorder traversal from the root */
     public void postorder() {
@@ -178,19 +173,6 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         postorder(root.left);
         postorder(root.right);
         System.out.print(root.element + " ");
-    }
-
-    @Override /** Preorder traversal from the root */
-    public void preorder() {
-        preorder(root);
-    }
-
-    /** Preorder traversal from a subtree */
-    protected void preorder(TreeNode<E> root) {
-        if (root == null) return;
-        System.out.print(root.element + " ");
-        preorder(root.left);
-        preorder(root.right);
     }
 
     /** This inner class is static, because it does not access
