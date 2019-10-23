@@ -72,6 +72,12 @@ public class BSTAnimation extends Application {
             }
             else {
                 tree.delete(key); // Delete a key
+                for (BST.TreeNode<Integer> i : view.path) { // Check if the deleted key appears in highlight path, if so, clear it, resetting the highlight
+                    if(i.element == key) {
+                        view.path.clear();
+                        break;
+                    }
+                }
                 view.displayTree();
                 view.setStatus(key + " is deleted from the tree");
             }
@@ -80,6 +86,7 @@ public class BSTAnimation extends Application {
         // Set behavior for search button
         btSearch.setOnAction(e -> {
             int key = Integer.parseInt(tfKey.getText());
+            view.path = tree.path(key); // set path variable in BTView equal to the path returned by BST path method
             if (!tree.search(key)) { // if key is not in the tree
                 view.displayTree();
                 view.setStatus(key + " is not in the tree");

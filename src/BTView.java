@@ -19,7 +19,7 @@ public class BTView extends Pane {
     private BST<Integer> tree = new BST<>();
     private double radius = 15; // Tree node radius
     private double vGap = 50; // Gap between successive levels in the tree
-    //public java.util.ArrayList<TreeNode<E>>
+    public java.util.ArrayList<BST.TreeNode<Integer>> path; // variable that stores search path
 
     BTView(BST<Integer> tree) {
         this.tree = tree;
@@ -58,7 +58,16 @@ public class BTView extends Pane {
 
         // Display a node
         Circle circle = new Circle(x, y, radius);
-        circle.setFill(Color.WHITE);
+        // Logic to shade in the search path when the search button is pressed
+        if (path != null) { // Check if local variable path has been populated (when search button pressed)
+            if (path.contains(root)) { // If element is in the search path, fill it in orange
+                circle.setFill(Color.ORANGE);
+            } else {
+                circle.setFill(Color.WHITE);
+            }
+        } else {
+            circle.setFill(Color.WHITE);
+        }
         circle.setStroke(Color.BLACK);
         this.getChildren().addAll(circle,
                 new Text(x - 4, y + 4, root.element.toString()));
