@@ -72,10 +72,12 @@ public class BSTAnimation extends Application {
             }
             else {
                 tree.delete(key); // Delete a key
-                for (BST.TreeNode<Integer> i : view.path) { // Check if the deleted key appears in highlight path, if so, clear it, resetting the highlight
-                    if(i.element == key) {
-                        view.path.clear();
-                        break;
+                if (view.path != null) { // Check if the deleted key appears in highlight path, if so, clear it, resetting the highlight
+                    for (BST.TreeNode<Integer> i : view.path) {
+                        if(i.element == key) {
+                            view.path.clear();
+                            break;
+                        }
                     }
                 }
                 view.displayTree();
@@ -94,6 +96,12 @@ public class BSTAnimation extends Application {
                 view.displayTree();
                 view.setStatus("Found " + key + " in the tree");
             }
+        });
+
+        // Set behavior for height button
+        btHeight.setOnAction(e -> {
+            view.displayTree();
+            view.setStatus("Tree height is " + tree.height());
         });
 
         // Create a scene and place the pane in the stage

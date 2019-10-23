@@ -22,6 +22,34 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
             add(objects[i]);
     }
 
+    // Create height function to return the height of a tree, calls height recursively
+    public int height() {
+        if (size == 0) { // Empty tree, return -1
+            return -1;
+        } else if (size == 1) { // Tree with single node, return 0
+            return 0;
+        } else {
+            return height(root); // Recursively find height
+        }
+    }
+
+    // Recursive function to determine height of tree
+    private int height(TreeNode<E> node) {
+        if (node == null) { // Base case
+            return 0;
+        } else { // Recursively call height to find height of left and right subtrees
+            int leftHeight = height(node.left);
+            int rightHeight= height(node.right);
+
+            // Take whichever is largest
+            if (leftHeight > rightHeight) {
+                return leftHeight + 1;
+            } else {
+                return rightHeight + 1;
+            }
+        }
+    }
+
     @Override /** Returns true if the element is in the tree */
     public boolean search(E e) {
         TreeNode<E> current = root; // Start from the root
