@@ -157,9 +157,24 @@ public class BST<E extends Comparable<E>> implements Tree<E> {
         return orderedList;
     }
 
-    // Define method to return list of breadth-first elements
+    // Define helper method to add elements to ordered list in breadth-first fashion
+    private void breadthFirstOrderList(TreeNode<E> root, List<E> list) {
+        Queue<TreeNode<E>> queue = new LinkedList<>(); // Instantiate new empty queue
+        if (root == null) return; // Base case
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode<E> node = queue.remove();
+            list.add(node.element);
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
+        }
+    }
+
+    // Define method to return list of breadth-first elements by calling helper method
     public java.util.List<E> breadthFirstOrderList() {
-        return null;
+        orderedList.clear();
+        breadthFirstOrderList(root, orderedList);
+        return orderedList;
     }
 
     /** This inner class is static, because it does not access

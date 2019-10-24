@@ -75,7 +75,7 @@ public class BSTAnimation extends Application {
                 if (view.path != null) { // Check if the deleted key appears in highlight path, if so, clear it, resetting the highlight
                     for (BST.TreeNode<Integer> i : view.path) {
                         if(i.element == key) {
-                            view.path.clear();
+                            view.path = null;
                             break;
                         }
                     }
@@ -126,6 +126,12 @@ public class BSTAnimation extends Application {
             // Test
             tree.postorder();
             view.setStatus("Postorder Traversal: " + tree.postorderList().toString());
+        });
+
+        // Set behavior for breadth-first button
+        btBreadth.setOnAction(e -> {
+            view.displayTree();
+            view.setStatus("Breadth-first traversal: " + tree.breadthFirstOrderList().toString());
         });
 
 
