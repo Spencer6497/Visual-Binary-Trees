@@ -71,7 +71,6 @@ public class BSTAnimation extends Application {
                 view.setStatus(key + " is not in the tree");
             }
             else {
-                tree.delete(key); // Delete a key
                 if (view.path != null) { // Check if the deleted key appears in highlight path, if so, clear it, resetting the highlight
                     for (BST.TreeNode<Integer> i : view.path) {
                         if(i.element == key) {
@@ -80,6 +79,7 @@ public class BSTAnimation extends Application {
                         }
                     }
                 }
+                tree.delete(key); // Delete a key
                 view.displayTree();
                 view.setStatus(key + " is deleted from the tree");
             }
@@ -107,24 +107,18 @@ public class BSTAnimation extends Application {
         // Set behavior for inorder button
         btInorder.setOnAction(e -> {
             view.displayTree();
-            // Test
-            tree.inorder();
             view.setStatus("Inorder Traversal: " + tree.inorderList().toString());
         });
 
         // Set behavior for preorder button
         btPreorder.setOnAction(e -> {
             view.displayTree();
-            // Test
-            tree.preorder();
             view.setStatus("Preorder Traversal: " + tree.preorderList().toString());
         });
 
         // Set behavior for postorder button
         btPostorder.setOnAction(e -> {
             view.displayTree();
-            // Test
-            tree.postorder();
             view.setStatus("Postorder Traversal: " + tree.postorderList().toString());
         });
 
