@@ -1,11 +1,6 @@
 /*
-    Spencer Peace
-    CSC 364-001
-    Dr. Jeff Ward
-
     This program provides BSTAnimation.java with the visual elements to display the BST, such as the circular nodes and
     the links between them, as well as the highlighting associated with the search function.
-
  */
 
 
