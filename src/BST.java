@@ -1,8 +1,4 @@
 /*
-    Spencer Peace
-    CSC 364-001
-    Dr. Jeff Ward
-
     This file, BST.java, provides the class with the underlying logic for BSTAnimation. It implements a binary
     search tree which implements the Tree interface, with numerous methods for inserting, deleting, and traversing
     the tree.
